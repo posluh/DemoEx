@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+  <meta charset="UTF-8">
+  <title>Main page</title>
+</head>
+<body>
+<div sec:authorize="hasRole('ADMIN')">
+  <h2>This block is visible only to the administrator</h2>
+</div>
+<div sec:authorize="hasRole('USER')">
+  <h2>This block is visible only to a regular user</h2>
+</div>
+<div>
+  <form method="post" th:action="@{/logout}">
+    <input type="submit" value="Sign Out">
+  </form>
+</div>
+</body>
+</html>
