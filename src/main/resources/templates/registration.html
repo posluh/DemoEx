@@ -2,9 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Registration</title>
 </head>
 <body>
-
+<h1>Registration</h1>
+<form method="POST" th:action="@{/registration}" id="registration">
+    <label for="firstname"> Firstname: </label>
+    <input type="text" name="firstname" id="firstname"/></br>
+    <label for="surname"> Surname: </label>
+    <input type="text" name="surname" id="surname"/></br>
+    <label for="lastname"> Lastname: </label>
+    <input type="text" name="lastname" id="lastname"/></br>
+    <label for="username"> Username: </label>
+    <input type="text" name="username" id="username"/></br>
+    <label for="number"> Number: </label>
+    <input type="text" name="number" id="number"/></br>
+    <label for="email"> Email: </label>
+    <input type="email" name="email" id="email"/></br>
+    <label for="password"> Password: </label>
+    <input type="text" name="password" id="password"/></br>
+    <input type="submit" value="Register"/>
+</form>
 </body>
 </html>
