@@ -15,10 +15,10 @@ public class IndexController {
         return "index";
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    /*@PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/admin")
     public String adminPage(){
         return "admin";
-    }
+    }*/
 
 }
