@@ -2,8 +2,6 @@ package com.example.demoex.controller;
 
 import com.example.demoex.model.Statement;
 import com.example.demoex.service.StatementService;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import lombok.*;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

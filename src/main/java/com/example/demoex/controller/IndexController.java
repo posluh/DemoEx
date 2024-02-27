@@ -7,9 +7,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/main")
 @RequiredArgsConstructor
 public class IndexController {
+
+    @GetMapping("/")
+    String mainPage(){
+        return "index";
+    }
 
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/admin")

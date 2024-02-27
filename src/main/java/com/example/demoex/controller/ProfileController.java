@@ -1,6 +1,5 @@
 package com.example.demoex.controller;
 
-import com.example.demoex.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;

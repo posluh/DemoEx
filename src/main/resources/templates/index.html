@@ -1,20 +1,42 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<html lang="ru" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
   <meta charset="UTF-8">
-  <title>Main page</title>
+  <title>Главная страница</title>
+  <link type="text/css" rel="stylesheet" href="">
+  <link rel="icon" type="image/x-icon" href="../image/ico.svg">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 </head>
 <body>
-<div sec:authorize="hasRole('ADMIN')">
-  <h2>This block is visible only to the administrator</h2>
+<header>
+  <a th:href="@{/}"><img th:src="@{/image/logo.svg}" alt="Логотип"></a>
+  <a class="button" th:href="@{/}"><b>Пользователи</b></a>
+  <a class="button" th:href="@{/}"><b>Заявки</b></a>
+  <div sec:authorize="hasRole('ADMIN')">
+    <a class="button" th:href="@{/}"><b>Администрирование</b></a>
+  </div>
+</header>
+
+<div class="text-container">
+  <div>
+    <div>
+      <h1>Привет пользователь</h1>
+      <p>По сообщению снизу ты можешь понять кто ты:</p>
+      <div sec:authorize="hasRole('ADMIN')">
+        <h2>Это сообщение видят только АДМИНИСТРАТОРЫ</h2>
+      </div>
+      <div sec:authorize="hasRole('USER')">
+        <h2>Это сообщения видят только ПОЛЬЗОВАТЕЛИ</h2>
+      </div>
+      <p>Выйти ты можешь нажав на эту кнопку</p>
+      <div>
+        <form method="post" th:action="@{/logout}">
+          <input class="button" type="submit" value="Выход">
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
-<div sec:authorize="hasRole('USER')">
-  <h2>This block is visible only to a regular user</h2>
-</div>
-<div>
-  <form method="post" th:action="@{/logout}">
-    <input type="submit" value="Sign Out">
-  </form>
-</div>
+
 </body>
 </html>

@@ -3,14 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link type="text/css" rel="stylesheet" href="">
+    <link rel="icon" type="image/x-icon" href="../image/ico.svg">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 </head>
 <body>
-<form method="POST" th:action="@{/login}" id="login">
-    <label for="username">Username: </label>
-    <input type="text" name="username" id="username"/></br>
-    <label for="password">Password: </label>
-    <input type="password" name="password" id="password"/></br>
-    <input type="submit" value="Login">
-</form>
+<div class="container-form">
+    <form class="form" method="POST" th:action="@{/login}" id="login">
+        <h1>Авторизация</h1>
+        <h2 th:if="${param.error != null}" style="color: red;">Неверные данные</h2>
+        <h2 th:if="${param.logout != null}" style="color: red;">Вы успешно вышли</h2>
+        <div class="container">
+            <label for="username">Логин</label>
+            <input type="text" name="username" id="username" maxlength="20" minlength="5" pattern="[A-Za-z0-9!@-_]+" title="Пожалуйста, вводите только английские символы или цифры, а также !@_" required>
+        </div>
+        <div class="container">
+            <label for="password">Пароль</label>
+            <input type="password" name="password" id="password"  maxlength="20" minlength="5" pattern="[A-Za-z0-9!@-_]+" title="Пожалуйста, вводите только английские символы или цифры, а также !@_" required>
+        </div>
+        <input class="button" type="submit" value="Войти">
+    </form>
+    <form method="get" th:action="@{/registration}">
+        <input class="button" type="submit" value="Регистрация">
+    </form>
+</div>
 </body>
 </html>
