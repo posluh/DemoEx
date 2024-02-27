@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Edit user</title>
+    <title>Изменение пользователя</title>
+    <link type="text/css" rel="stylesheet" href="">
+    <link rel="icon" type="image/x-icon" href="../image/ico.svg">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 </head>
 <body>
-<form method="post" th:action="@{/update-user/{id}(id=${user.id})}" th:object="${users}">
+<form method="post" th:action="@{/user/update-user/{id}(id=${user.id})}" th:object="${user}">
     <label for="firstname">Firstname: </label>
     <input th:field="*{firstname}" placeholder="Firstname" id="firstname" type="text"/>
     <label for="surname">Surname: </label>

@@ -10,7 +10,7 @@
 <body>
 <header>
   <a th:href="@{/}"><img th:src="@{/image/logo.svg}" alt="Логотип"></a>
-  <a class="button" th:href="@{/}"><b>Пользователи</b></a>
+  <a class="button" th:href="@{/user}"><b>Пользователи</b></a>
   <a class="button" th:href="@{/}"><b>Заявки</b></a>
   <div sec:authorize="hasRole('ADMIN')">
     <a class="button" th:href="@{/}"><b>Администрирование</b></a>
@@ -28,11 +28,9 @@
       <div sec:authorize="hasRole('USER')">
         <h2>Это сообщения видят только ПОЛЬЗОВАТЕЛИ</h2>
       </div>
-      <p>Выйти ты можешь нажав на эту кнопку</p>
+      <p>Выйти ты можешь войти в свой профиль</p>
       <div>
-        <form method="post" th:action="@{/logout}">
-          <input class="button" type="submit" value="Выход">
-        </form>
+        <a class="button" th:href="@{/profile}"><b>Профиль</b></a>
       </div>
     </div>
   </div>

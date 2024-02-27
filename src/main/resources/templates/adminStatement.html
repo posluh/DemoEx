@@ -19,10 +19,11 @@
                 <p class="card-text" th:text="'Номер автомобиля  : ' + ${statement.carNumber}"></p>
                 <p class="card-text" th:text="'Описание : ' + ${statement.description}"></p>
                 <p class="card-text" th:text="'Статус : ' + ${statement.status}"></p>
-                <form method="post" th:action="@{/statement/rejected}">
+                <form method="post" th:action="@{/statement/rejected}" th:object="${statement}">
                     <button class="btn btn-primary" type="submit">Отклонить</button>
                 </form>
-                <form method="post" th:action="@{/statement/confirmation}">
+
+                <form method="post" th:action="@{/statement/confirmation}" th:object="${statement}">
                     <button class="btn btn-primary" type="submit">Подтвердить</button>
                 </form>
             </div>

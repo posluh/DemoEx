@@ -17,11 +17,6 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("")
-    String mainPage(){
-        return "userList";
-    }
-
-    @GetMapping("/all")
     String findAllUser(Model model, String firstname){
         if (firstname == null){
             model.addAttribute("users", userService.findAll());
@@ -41,13 +36,13 @@ public class UserController {
     @PostMapping("/save")
     String saveUser(User user){
         userService.save(user);
-        return "redirect:/all";
+        return "redirect:/user";
     }
 
     @GetMapping("/delete-user/{id}")
     String deleteUser(@PathVariable Long id){
         userService.deleteUser(id);
-        return "redirect:/all";
+        return "redirect:/user";
     }
 
     /** Метод для получения пользователя по его ID
@@ -66,6 +61,6 @@ public class UserController {
     @PostMapping("/update-user/{id}")
     String updateUser(@ModelAttribute User user){
         userService.save(user);
-        return "redirect:/all";
+        return "redirect:/user";
     }
 }

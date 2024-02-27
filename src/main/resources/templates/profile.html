@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Profile</title>
+  <title>Профиль</title>
+  <link type="text/css" rel="stylesheet" href="">
+  <link rel="icon" type="image/x-icon" href="../image/ico.svg">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 </head>
 <body>
 <div>
@@ -13,7 +16,7 @@
 </div>
 <div>
   <form method="post" th:action="@{/logout}">
-    <input type="submit" value="Sign Out">
+    <input class="button" type="submit" value="Выход">
   </form>
 </div>
 </body>

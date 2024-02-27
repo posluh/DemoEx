@@ -51,8 +51,8 @@ public class StatementController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/rejected/{statementId}")
-    public String rejectedStatement(@PathVariable("statementId") Statement statement){
+    @PostMapping("/rejected")
+    public String rejectedStatement( Statement statement) {
         statementService.rejected(statement);
         return "redirect:/statement/admin";
     }
